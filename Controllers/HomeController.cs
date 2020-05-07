@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MvcPage.Models;
+using Utilities;
 
 namespace MvcPage.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        
+ 
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,6 +24,18 @@ namespace MvcPage.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.CountryJson = Country.GetCountries().ToJson();
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Save([Bind("id")] Country country)
+        {
+            ViewBag.countryName = Country
+                .GetCountries()
+                .FirstOrDefault(x => x.id == country.id)
+                ?.name;
             return View();
         }
 

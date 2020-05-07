@@ -1,26 +1,15 @@
 ﻿@using Utilities
 @{
     ViewData["Title"] = "Home Page";
-    var countries = new Country[]{
-        new Country
-        {
-            id = 1,
-            name = "United States"
-        },
-        new Country
-        {
-            id = 2,
-            name = "United Kingdom"
-        }
-    };
-    var countryJson = countries.ToJson();
-}
-
-<div class="text-center">
-    <h1 class="display-4">Hello World</h1>
-</div>
-<input id="myInput"/>
-<div class="auto-complete" 
-     data-bind="myInput" 
-     data-options='@countryJson' >
-</div>
+   }
+<form asp-action="Save" method="post">
+    <div class="text-center">
+        <h1 class="display-4">Please select a country</h1>
+    </div>
+    <div class="auto-complete"
+         data-bind="countryId"
+         data-options='@ViewBag.CountryJson'>
+    </div>
+    <input type="hidden" id="countryId" name="id" />
+    <button type="submit">Submit</button>
+</form>
