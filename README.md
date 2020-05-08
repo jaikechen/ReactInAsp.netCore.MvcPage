@@ -59,21 +59,18 @@ npm run watch
 it will generate the javascripts in wwwroot
 
 ## add refrence to \_layout.cshtml
-add react java script refrence to layout file, so you don't need to refrence react in every page
+add react java script refrence to layout file, so you don't need to refrence react in every page. Here asp-append-version tells browser to re-downlaod the js file.
 ```
     <script src="js/bundle.js" asp-append-version="true"></script>
     <script src="js/0.chunk.js" asp-append-version="true"></script>
     <script src="js/1.chunk.js" asp-append-version="true"></script>
     <script src="js/main.chunk.js" asp-append-version="true"></script>
-
 ```
-
 # Finally interact react in Index.cshtml
 ## pass in parameter to react
 * In the asp.net core controller, put contry list to ViewBag.CountryJson
 * in the cshtml, use data-option to pass parameter to react
 * the other directive data-bind, is the html element id of a hidden form input
-
 ````
     <div class="auto-complete"
          data-bind="countryId"
