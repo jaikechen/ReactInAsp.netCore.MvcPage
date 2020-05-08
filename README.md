@@ -1,6 +1,7 @@
 # Purpose
 This project demonstrates how to add react to existing asp.net core MVC page.
 The asp.net core React project template doesn't work because it only supports single page application - SPA. 
+Also, every time save a change in csthml, html, react source code, the browser can automatically refresh.
 
 # Example scenario 
 
