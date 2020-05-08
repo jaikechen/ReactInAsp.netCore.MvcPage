@@ -6,10 +6,10 @@ The asp.net core React project template doesn't work because it only supports si
 
 ![](DocImages/selectCountry.JPG?raw=true)
 
-When index.cshtml page is loading,  the server renders a country list, an input, and a <div> elements.
-when the page is loaded in a browser, the React script renders the <div> as a autocomplete component.
-When a user selects a country, the react script set the selected country id to the input
-when index.cshtml is submitted, the asp.net controller received the selected country id
+1. When index.cshtml page is loading,  the server renders a country list, an input, and a <div> elements.
+2. when the page is loaded in a browser, the React script renders the <div> as a autocomplete component.
+3. When a user selects a country, the react script set the selected country id to the input
+4. when index.cshtml is submitted, the asp.net controller received the selected country id
 
 # Add Browser Link to asp.net core mvc project
 
@@ -63,6 +63,29 @@ add react java script refrence to layout file, so you don't need to refrence rea
 
 ```
 
-# Index.cshtml
+# Finally interact react in Index.cshtml
 ## pass in parameter to react
-## get result from react
+* In the asp.net core controller, put contry list to ViewBag.CountryJson
+* in the cshtml, use data-option to pass parameter to react
+* the other directive data-bind, is the html element id of a hidden form input
+
+````
+    <div class="auto-complete"
+         data-bind="countryId"
+         data-options='@ViewBag.CountryJson'>
+    </div>
+    <input type="hidden" id="countryId" name="id" />
+````
+## in index.tsx Parse json string as object, then pass it to react
+````
+    const ds = (x as any).dataset;
+    const options = JSON.parse(ds.options);
+    const bind:string = ds.bind;
+    ReactDOM.render(<Combobox bind={bind} options={options} />, x);
+````
+## in MyAutoComplete.tsx, get result from react
+* in react, when data change, it save the change to the form input
+````
+    const ele = document.getElementById(bind) as any;
+    ele.value= val? val.id: val;
+````
