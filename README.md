@@ -23,7 +23,7 @@ https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=
             }
 ```` 
 
-# Add a React Type script to the asp.net core mve project
+# Add a React Type script to the asp.net core MVC project
 ## create a react app 
 https://create-react-app.dev/docs/adding-typescript/
 ````
@@ -40,6 +40,11 @@ add watch to scripts
 ````
     "watch": "cra-build-watch -b ../wwwroot"
 ````
+
+## copy react file to the asp.net core MVC project
+1. create a folder ReactApp in the project root folder
+2. copy public src package.json tsconfig.json from the react app directory to the ReactApp directory
+
 
 # Enable Use Browser link
 
