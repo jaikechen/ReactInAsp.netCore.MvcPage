@@ -31,7 +31,11 @@ https://create-react-app.dev/docs/adding-typescript/
 npx create-react-app my-app --template typescript
 ````
 ## Changes in package.json
-add a package cra-build-watch  https://www.npmjs.com/package/cra-build-watch
+* add a package cra-build-watch  https://www.npmjs.com/package/cra-build-watch
+add it for 3 reasons:
+1. we can get a development build
+2. we can set the output directory
+3. every time we save a change in react, it generate \*.js file in wwwroot, then Browser link detects the change and refresh the browser.
 ````
  "devDependencies": {
     "cra-build-watch": "^3.2.0"
