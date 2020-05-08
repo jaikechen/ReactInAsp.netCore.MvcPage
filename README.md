@@ -43,7 +43,7 @@ add watch to scripts
 
 ## Copy react file to the asp.net core MVC project
 1. create a folder ReactApp in the project root folder
-2. copy public src package.json tsconfig.json from the react app directory to the ReactApp directory
+2. copy public, src, package.json tsconfig.json from the react app directory to the ReactApp directory
 
 # Reference react in the asp.net core MVC Project
 ## build react app
