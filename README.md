@@ -16,14 +16,14 @@ when index.cshtml is submitted, the asp.net controller received the selected cou
 You can use BrowserLink to refresh the browser every time you save a cshtml, html, or js file
 https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-3.1
 ````c#
- if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
             }
 ```` 
 
-# Add a React Type script to the asp.net core MVC project
+# Add a React Type script app to the asp.net core MVC project
 ## create a react app 
 https://create-react-app.dev/docs/adding-typescript/
 ````
@@ -41,14 +41,27 @@ add watch to scripts
     "watch": "cra-build-watch -b ../wwwroot"
 ````
 
-## copy react file to the asp.net core MVC project
+## Copy react file to the asp.net core MVC project
 1. create a folder ReactApp in the project root folder
 2. copy public src package.json tsconfig.json from the react app directory to the ReactApp directory
 
+# Reference react in the asp.net core MVC Project
+## build react app
+open a terminal,go to \[the project directory]\\ReactApp, run command
+````
+npm run watch
+````
+it will generate the javascripts in wwwroot
 
-# Enable Use Browser link
+## add refrence to \_layout.cshtml
+add react java script refrence to layout file, so you don't need to refrence react in every page
+```
+    <script src="js/bundle.js" asp-append-version="true"></script>
+    <script src="js/0.chunk.js" asp-append-version="true"></script>
+    <script src="js/1.chunk.js" asp-append-version="true"></script>
+    <script src="js/main.chunk.js" asp-append-version="true"></script>
 
-# Change the _layout.cshtml
+```
 
 # Index.cshtml
 ## pass in parameter to react
