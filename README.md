@@ -11,6 +11,18 @@ when the page is loaded in a browser, the React script renders the <div> as a au
 When a user selects a country, the react script set the selected country id to the input
 when index.cshtml is submitted, the asp.net controller received the selected country id
 
+# asp.net core mvc project
+
+You can use BrowserLink to refresh the browser every time you save a cshtml, html, or js file
+https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-3.1
+````c#
+ if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
+            }
+```` 
+
 # Create a React Type script Project
 ## Changes in package.json
 
