@@ -11,7 +11,7 @@ when the page is loaded in a browser, the React script renders the <div> as a au
 When a user selects a country, the react script set the selected country id to the input
 when index.cshtml is submitted, the asp.net controller received the selected country id
 
-# asp.net core mvc project
+# Add Browser Link to asp.net core mvc project
 
 You can use BrowserLink to refresh the browser every time you save a cshtml, html, or js file
 https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-3.1
@@ -23,8 +23,23 @@ https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=
             }
 ```` 
 
-# Create a React Type script Project
+# Add a React Type script to the asp.net core mve project
+## create a react app 
+https://create-react-app.dev/docs/adding-typescript/
+````
+npx create-react-app my-app --template typescript
+````
 ## Changes in package.json
+add a package cra-build-watch  https://www.npmjs.com/package/cra-build-watch
+````
+ "devDependencies": {
+    "cra-build-watch": "^3.2.0"
+  },
+````
+add watch to scripts
+````
+    "watch": "cra-build-watch -b ../wwwroot"
+````
 
 # Enable Use Browser link
 
